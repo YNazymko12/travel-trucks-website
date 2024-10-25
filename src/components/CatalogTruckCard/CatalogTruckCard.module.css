@@ -21,14 +21,14 @@
 .truckName {
   font-weight: 600;
   font-size: 24px;
-  line-height: 133%;
+  line-height: 1.3;
   color: var(--main);
 }
 
 .truckPrice {
   font-weight: 600;
   font-size: 24px;
-  line-height: 133%;
+  line-height: 1.3;
   color: var(--main);
   margin-right: 12px;
 }
@@ -72,7 +72,7 @@
 .rating {
   font-weight: 400;
   font-size: 16px;
-  line-height: 150%;
+  line-height: 1.5;
   color: var(--main);
 }
 
@@ -103,7 +103,7 @@
   width: 492px;
   font-weight: 400;
   font-size: 16px;
-  line-height: 150%;
+  line-height: 1.5;
   color: var(--text);
   white-space: nowrap;
   overflow: hidden;
@@ -115,12 +115,13 @@
   text-decoration: none;
   border-radius: 200px;
   padding: 16px 40px;
+  margin-top: 24px;
   width: 166px;
   height: 56px;
   background-color: var(--button);
   font-weight: 500;
   font-size: 16px;
-  line-height: 150%;
+  line-height: 1.5;
   letter-spacing: -0.01em;
   color: var(--white);
   transition: background-color 250ms cubic-bezier(0.4, 0, 0.2, 1);

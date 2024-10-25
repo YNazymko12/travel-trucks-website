@@ -1,4 +1,3 @@
-import { useMemo } from 'react';
 import { Form, Formik } from 'formik';
 import { useDispatch, useSelector } from 'react-redux';
 import { selectItems } from '../../redux/trucks/selectors';

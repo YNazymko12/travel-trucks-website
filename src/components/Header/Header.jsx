@@ -1,6 +1,6 @@
 import Navigation from '../Navigation/Navigation';
 
-import css from './Layout.module.css';
+import css from './Header.module.css';
 
 const Layout = () => {
   return (
