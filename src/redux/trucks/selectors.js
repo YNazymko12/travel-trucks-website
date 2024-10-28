@@ -17,17 +17,12 @@ export const selectVisibleTrucks = createSelector(
         (!filterLocation ||
           filterLocation === '' ||
           truckLocation.includes(filterLocation)) &&
+        (!filterName.transmission || truck.transmission === 'automatic') &&
         (!filterName.form || truck.form === filterName.form) &&
         (!filterName.AC || truck.AC === filterName.AC) &&
-        (!filterName.bathroom || truck.bathroom === filterName.bathroom) &&
         (!filterName.kitchen || truck.kitchen === filterName.kitchen) &&
         (!filterName.TV || truck.TV === filterName.TV) &&
-        (!filterName.radio || truck.radio === filterName.radio) &&
-        (!filterName.refrigerator ||
-          truck.refrigerator === filterName.refrigerator) &&
-        (!filterName.microwave || truck.microwave === filterName.microwave) &&
-        (!filterName.gas || truck.gas === filterName.gas) &&
-        (!filterName.water || truck.water === filterName.water)
+        (!filterName.bathroom || truck.bathroom === filterName.bathroom)
       );
     });
   }

@@ -2,7 +2,6 @@ import { NavLink, Outlet, useLocation, useParams } from 'react-router-dom';
 import { useEffect } from 'react';
 import { HiStar } from 'react-icons/hi';
 import { CiMap } from 'react-icons/ci';
-// import { changeActivePage } from "../../utils/activePage";
 import { useDispatch, useSelector } from 'react-redux';
 import { selectTruckItems } from '../../redux/truck/selectors';
 import { fetchTruck } from '../../redux/truck/operation';
@@ -30,6 +29,8 @@ const DetailsTruckPage = () => {
   const { name, price, rating, location, description, reviews, gallery } =
     truckInfo;
 
+  const formattedLocation = location.split(', ').reverse().join(', ');
+
   return (
     <section className={css.truckInfoSection}>
       <div className={css.truckInfoContainer}>
@@ -43,10 +44,10 @@ const DetailsTruckPage = () => {
           </div>
           <div className={css.locationContainer}>
             <CiMap className={css.iconMap} />
-            <p className={css.location}>{location}</p>
+            <p className={css.location}>{formattedLocation}</p>
           </div>
         </div>
-        <h2 className={css.truckPrice}>€{price}</h2>
+        <h2 className={css.truckPrice}>{`€ ${Number(price).toFixed(2)}`}</h2>
       </div>
 
       <ul className={css.galleryList}>

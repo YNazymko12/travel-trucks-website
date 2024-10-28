@@ -48,3 +48,7 @@ img {
 .overflowHidden {
   overflow: hidden;
 }
+
+.react-datepicker__header {
+  background-color: #fff !important;
+}

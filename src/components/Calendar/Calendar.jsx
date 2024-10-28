@@ -9,27 +9,24 @@ import css from './Calendar.module.css';
 registerLocale('en-GB', enGB);
 
 const Calendar = ({ name }) => {
-  const [field, meta] = useField(name);
-  const { setFieldValue } = useFormikContext();
+  const [, meta] = useField(name);
+  const { setFieldValue, values } = useFormikContext();
   const error = meta.touched && meta.error;
-  const currentDate = field.value ? new Date(field.value) : null;
+  const [startDate, endDate] = values[name] || [null, null];
 
   return (
     <div>
       <DatePicker
         className={css.reactDatepicker}
         placeholderText="Booking date*"
-        dayClassName={date =>
-          currentDate && date.toDateString() === currentDate.toDateString()
-            ? css['selected_day']
-            : css['non_selected_day']
-        }
-        {...field}
-        selected={currentDate}
+        selectsRange
+        startDate={startDate}
+        endDate={endDate}
         minDate={new Date()}
         locale="en-GB"
-        onChange={date => {
-          setFieldValue(name, date);
+        dateFormat="d MMMM, yyyy"
+        onChange={dates => {
+          setFieldValue(name, dates);
         }}
       />
       {error && <div className={css.error}>{meta.error}</div>}

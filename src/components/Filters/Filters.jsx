@@ -26,17 +26,11 @@ const Filters = () => {
   const initialValues = {
     location: '',
     transmission: '',
-    engine: '',
     form: '',
     AC: false,
-    bathroom: false,
     kitchen: false,
     TV: false,
-    radio: false,
-    refrigerator: false,
-    microwave: false,
-    gas: false,
-    water: false,
+    bathroom: false,
   };
 
   const dispatch = useDispatch();

@@ -112,9 +112,5 @@
   color: var(--main);
   text-decoration: none;
   border-bottom: 5px solid var(--button);
-  padding-bottom: 24px;
+  padding-bottom: 22px;
 }
-
-/* .fetchErrorImg {
-  margin: 0 auto;
-} */

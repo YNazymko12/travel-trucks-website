@@ -21,6 +21,9 @@ const CatalogTruckCard = ({ truck }) => {
 
   const { name, price, rating, location, description, reviews, gallery, id } =
     truck;
+
+  const formattedLocation = location.split(', ').reverse().join(', ');
+
   return (
     <>
       <div className={css.imgContainer}>
@@ -30,7 +33,9 @@ const CatalogTruckCard = ({ truck }) => {
         <div className={css.costContainer}>
           <h2 className={css.truckName}>{name}</h2>
           <div className={css.priceContainer}>
-            <h2 className={css.truckPrice}>€{price}</h2>
+            <h2 className={css.truckPrice}>{`€ ${Number(price).toFixed(
+              2
+            )}`}</h2>
             <button
               onClick={handleIsFavorite}
               type="button"
@@ -55,7 +60,7 @@ const CatalogTruckCard = ({ truck }) => {
           </div>
           <div className={css.locationContainer}>
             <CiMap className={css.iconMap} />
-            <p className={css.location}>{location}</p>
+            <p className={css.location}>{formattedLocation}</p>
           </div>
         </div>
         <p className={css.description}>{description}</p>

@@ -3,25 +3,22 @@ import {
   BsCupHot,
   BsDisplay,
   BsDroplet,
-  BsUiRadios,
+  BsDiagram3,
   BsWind,
 } from 'react-icons/bs';
-import { TbFridge, TbMicrowave } from 'react-icons/tb';
-import { FaFireBurner } from 'react-icons/fa6';
-import { FaHandHoldingWater } from 'react-icons/fa';
 
 import css from './VehicleEquipment.module.css';
 
 const equipmentOptions = [
   { key: 'AC', icon: <BsWind className={css.checkboxIcon} /> },
-  { key: 'bathroom', icon: <BsDroplet className={css.checkboxIcon} /> },
+  {
+    key: 'transmission',
+    label: 'Automatic',
+    icon: <BsDiagram3 className={css.checkboxIcon} />,
+  },
   { key: 'kitchen', icon: <BsCupHot className={css.checkboxIcon} /> },
-  { key: 'water', icon: <FaHandHoldingWater className={css.checkboxIcon} /> },
-  { key: 'gas', icon: <FaFireBurner className={css.checkboxIcon} /> },
   { key: 'TV', icon: <BsDisplay className={css.checkboxIcon} /> },
-  { key: 'radio', icon: <BsUiRadios className={css.checkboxIcon} /> },
-  { key: 'refrigerator', icon: <TbFridge className={css.checkboxIcon} /> },
-  { key: 'microwave', icon: <TbMicrowave className={css.checkboxIcon} /> },
+  { key: 'bathroom', icon: <BsDroplet className={css.checkboxIcon} /> },
 ];
 
 const VehicleEquipment = () => {
@@ -42,7 +39,9 @@ const VehicleEquipment = () => {
               <label htmlFor={item.key} className={css.customCheckboxContainer}>
                 <div className={css.customCheckbox}>
                   {item.icon}
-                  <span className={css.checkboxText}>{item.key}</span>
+                  <span className={css.checkboxText}>
+                    {item.label ? item.label : item.key}
+                  </span>
                 </div>
               </label>
             </li>

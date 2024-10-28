@@ -2,7 +2,7 @@ import { useSelector } from 'react-redux';
 import { selectTruckItems } from '../../redux/truck/selectors';
 
 import BookingForm from '../BookingForm/BookingForm';
-// import StarRating from '../StarRating/StarRating';
+import StarRating from '../StarRating/StarRating';
 
 import css from './Reviews.module.css';
 
@@ -24,7 +24,7 @@ const Reviews = () => {
               </div>
               <div>
                 <p className={css.textName}>{review.reviewer_name}</p>
-                {/* <StarRating rating={review.reviewer_rating} /> */}
+                <StarRating rating={review.reviewer_rating} />
               </div>
             </div>
             <p className={css.textComment}>{review.comment}</p>

@@ -10,16 +10,36 @@ const BookingForm = () => {
   const initialValues = {
     username: '',
     email: '',
-    bookingDate: '',
+    bookingDates: [null, null],
     comment: '',
   };
 
-  const handleSubmit = (values, actions) => {
-    console.log('Form submitted with values:', values);
-    actions.resetForm();
-    toast.success(
-      'Success! Your submission was received. We will get back to you soon'
-    );
+  const handleSubmit = async (values, actions) => {
+    try {
+      const response = await fetch('https://api.web3forms.com/submit', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({
+          ...values,
+          access_key: '53170ba9-276a-4d7f-8149-285cd09f2e87',
+        }),
+      });
+
+      const result = await response.json();
+
+      if (result.success) {
+        toast.success(
+          'Success! Your submission was received. We will get back to you soon'
+        );
+        actions.resetForm();
+      } else {
+        toast.error('Submission failed. Please try again.');
+      }
+    } catch (error) {
+      toast.error('An error occurred. Please try again later.');
+    }
   };
 
   const validationSchema = Yup.object().shape({
@@ -34,7 +54,9 @@ const BookingForm = () => {
         /^(?!.*\.ru$)(?=.*@)[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/,
         'Must be a valid email!'
       ),
-    bookingDate: Yup.date().required('Required'),
+    bookingDates: Yup.array()
+      .of(Yup.date().required('Required'))
+      .min(2, 'Please select a start and end date'),
   });
 
   return (
@@ -78,7 +100,7 @@ const BookingForm = () => {
               name="bookingDate"
               component="span"
             />
-            <Calendar name="bookingDate" />
+            <Calendar name="bookingDates" />
           </div>
 
           <Field
