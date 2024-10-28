@@ -7,7 +7,7 @@ with React and Redux, the project uses efficient state management to handle data
 and interactions within the app. Although currently optimized for desktop users,
 future improvements may include responsive design.
 
-[Live Demo:](https://travel-trucks-website.vercel.app)
+[Travel Trucks Website](https://travel-trucks-website.vercel.app)
 
 ## Technologies Used
 
