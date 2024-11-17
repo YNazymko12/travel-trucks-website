@@ -1,6 +1,6 @@
 # Travel Trucks
 
-The **Travel Trucks Website** is a single-page application built to showcase a
+The **Travel Trucks Website** is a multi-page application built to showcase a
 unique collection of travel trucks available for viewing. The website provides a
 clean, user-friendly interface to explore and learn about each truck. Designed
 with React and Redux, the project uses efficient state management to handle data
